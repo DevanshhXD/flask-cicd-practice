@@ -29,6 +29,6 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/docker-cicd
-          docker stop docker-cicd || true && docker rm flask-cicd || true
+          docker stop docker-cicd || true && docker rm docker-cicd || true
           docker run -d -p 80:5000 --name flask-cicd ${{ secrets.DOCKER_USERNAME }}/docker-cicd
 
